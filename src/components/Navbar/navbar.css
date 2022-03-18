@@ -1,0 +1,12 @@
+.topIcon {
+  font-size: 26px;
+  margin-right: 10px;
+  color: #444;
+  cursor: pointer;
+}
+.topSearchIcon {
+  font-size: 20px;
+  color: #666;
+  cursor: pointer;
+  margin-left: 15px;
+}
