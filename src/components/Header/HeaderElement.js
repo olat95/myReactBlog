@@ -15,6 +15,7 @@ export const SmallTitle = styled.span`
   position: absolute;
   top: 18%;
   font-size: 40px;
+  text-transform: uppercase;
 `
 export const BigTitle = styled.span`
   position: absolute;
