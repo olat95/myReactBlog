@@ -36,6 +36,7 @@ export const SidebarImg = styled.img`
 `
 export const SidebarDesc = styled.p`
   padding: 30px;
+  text-align: justify;
 `
 export const SidebarList = styled.ul`
   list-style: none;

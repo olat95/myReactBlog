@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Navbar/navbar.css'
+import '../../style/style.css'
 import {
   Container,
   SidebarDesc,
@@ -37,6 +37,7 @@ const Sidebar = () => {
           <SidebarListItem>Movies</SidebarListItem>
           <SidebarListItem>News</SidebarListItem>
           <SidebarListItem>Inventions</SidebarListItem>
+          <SidebarListItem>Games</SidebarListItem>
         </SidebarList>
       </SidebarItem>
       <SidebarItem>

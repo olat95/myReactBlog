@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -38,14 +39,13 @@ export const NavbarListItem = styled.li`
   font-weight: 300;
   cursor: pointer;
 `
+export const NavLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`
 export const NavbarRImg = styled.img`
   width: 40px;
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
 `
-// export const Container = styled.div``
-// export const Container = styled.div``
-// export const Container = styled.div``
-
-// import styled, { css, createGlobalStyle } from 'styled-components';
