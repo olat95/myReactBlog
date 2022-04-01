@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
   flex: 3;
@@ -43,7 +44,10 @@ export const SidebarList = styled.ul`
   margin-bottom: 30px;
   margin-left: 50px;
 `
-
+export const SidebarLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`
 export const SidebarListItem = styled.li`
   display: inline-block;
   width: 50%;

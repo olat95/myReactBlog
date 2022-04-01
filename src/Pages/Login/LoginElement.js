@@ -47,6 +47,11 @@ export const LoginButton = styled.button`
   font-family: 'Varela', sans-serif;
   font-size: 15px;
   border: none;
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: #81ecec;
+  }
 `
 export const RegButton = styled.button`
   position: absolute;

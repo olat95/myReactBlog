@@ -6,9 +6,11 @@ import Settings from './Pages/Settings'
 import Single from './Pages/Single'
 import Write from './Pages/Write'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Context } from './context/Context'
+import { useContext } from 'react'
 
 function App() {
-  const user = false
+  const { user } = useContext(Context)
 
   return (
     <BrowserRouter>

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link as LinkRoute } from 'react-router-dom'
 
 export const Container = styled.div`
   width: 375px;
@@ -25,6 +26,10 @@ export const PostCategories = styled.div`
 `
 export const PostCategory = styled.span`
   padding-right: 10px;
+`
+export const PostLink = styled(LinkRoute)`
+  text-decoration: none;
+  color: inherit;
 `
 export const PostTitle = styled.span`
   font-family: 'Josefin Sans', sans-serif;

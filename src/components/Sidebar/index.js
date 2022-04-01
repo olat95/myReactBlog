@@ -1,18 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../style/style.css'
 import {
   Container,
   SidebarDesc,
   SidebarImg,
   SidebarItem,
+  SidebarLink,
   SidebarList,
   SidebarListItem,
   SidebarSocial,
   SidebarTitle,
 } from './SidebarElement'
 import myprofile from '../../images/pelumi edit3.jpg'
+import axios from 'axios'
 
 const Sidebar = () => {
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    const getCategory = async () => {
+      const response = await axios.get('/categories')
+      setCategories(response.data)
+    }
+    getCategory()
+  }, [])
+
   return (
     <Container>
       <SidebarItem>
@@ -29,15 +41,11 @@ const Sidebar = () => {
       <SidebarItem>
         <SidebarTitle>CATEGORIES</SidebarTitle>
         <SidebarList>
-          <SidebarListItem>Life</SidebarListItem>
-          <SidebarListItem>Technology</SidebarListItem>
-          <SidebarListItem>Health</SidebarListItem>
-          <SidebarListItem>Sport</SidebarListItem>
-          <SidebarListItem>Christianity</SidebarListItem>
-          <SidebarListItem>Movies</SidebarListItem>
-          <SidebarListItem>News</SidebarListItem>
-          <SidebarListItem>Inventions</SidebarListItem>
-          <SidebarListItem>Games</SidebarListItem>
+          {categories.map((cat, index) => (
+            <SidebarLink to={`/?cat=${cat.name}`}>
+              <SidebarListItem key={index}>{cat.name}</SidebarListItem>
+            </SidebarLink>
+          ))}
         </SidebarList>
       </SidebarItem>
       <SidebarItem>

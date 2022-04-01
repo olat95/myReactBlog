@@ -66,3 +66,7 @@ export const LogLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 `
+export const RegisterError = styled.p`
+  color: red;
+  margin-top: 15px;
+`

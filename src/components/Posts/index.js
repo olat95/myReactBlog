@@ -2,15 +2,14 @@ import React from 'react'
 import Post from '../Post'
 import { Container } from './PostsElement'
 
-const Posts = () => {
+const Posts = ({ posts }) => {
   return (
     <Container>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      {posts ? (
+        posts.map((item, index) => <Post key={index} post={item} />)
+      ) : (
+        <>404</>
+      )}
     </Container>
   )
 }

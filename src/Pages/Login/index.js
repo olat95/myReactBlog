@@ -1,4 +1,6 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useContext, useRef } from 'react'
+import { Context } from '../../context/Context'
 import {
   Container,
   LoginButton,
@@ -11,17 +13,43 @@ import {
 } from './LoginElement'
 
 const Login = () => {
+  const userRef = useRef()
+  const passwordRef = useRef()
+  const { dispatch, isFetching } = useContext(Context)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    dispatch({ type: 'LOGIN_START' })
+    try {
+      const response = await axios.post('/auth/login', {
+        username: userRef.current.value,
+        password: passwordRef.current.value,
+      })
+      dispatch({ type: 'LOGIN_SUCCESS', payload: response.data })
+    } catch (error) {
+      dispatch({ type: 'LOGIN_FAILURE' })
+    }
+  }
+
   return (
     <Container>
       <LoginTitle>Login</LoginTitle>
-      <LoginForm>
-        <LoginLabel>Email</LoginLabel>
-        <LoginInput type='text' placeholder='Enter your email' />
+      <LoginForm onSubmit={handleSubmit}>
+        <LoginLabel>Username</LoginLabel>
+        <LoginInput
+          type='text'
+          placeholder='Enter your username'
+          ref={userRef}
+        />
         <LoginLabel>Password</LoginLabel>
-        <LoginInput type='password' placeholder='Enter your password' />
+        <LoginInput
+          type='password'
+          placeholder='Enter your password'
+          ref={passwordRef}
+        />
         <LoginButton>Login</LoginButton>
       </LoginForm>
-      <RegButton>
+      <RegButton type='submit' disabled={isFetching}>
         <RegLink to='/register'>Register</RegLink>
       </RegButton>
     </Container>

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
   flex: 9;
@@ -32,6 +33,10 @@ export const SPInfo = styled.div`
   font-family: 'Varela Round', sans-serif;
 `
 export const SPAuthor = styled.span``
+export const SPLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`
 export const SPDate = styled.span``
 export const SPDesc = styled.p`
   color: #666;

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../../style/style.css'
-import profile from '../../images/profile.png'
+// import profile from '../../images/profile.png'
+import { Context } from '../../context/Context'
 import {
   Container,
   NavbarList,
@@ -13,7 +14,11 @@ import {
 } from './NavBarElement'
 
 const Navbar = () => {
-  const user = false
+  const { user, dispatch } = useContext(Context)
+
+  const handleLogout = () => {
+    dispatch({ type: 'LOGOUT' })
+  }
 
   return (
     <Container>
@@ -38,14 +43,14 @@ const Navbar = () => {
           <NavbarListItem>
             <NavLink to='/write'>WRITE</NavLink>
           </NavbarListItem>
-          <NavbarListItem>
-            <NavLink to='/'>{user && 'LOGOUT'}</NavLink>
+          <NavbarListItem onClick={handleLogout}>
+            {user && 'LOGOUT'}
           </NavbarListItem>
         </NavbarList>
       </NavCenter>
       <NavRight>
         {user ? (
-          <NavbarRImg src={profile} alt='profile picture' />
+          <NavbarRImg src={user.profilePic} alt='profile picture' />
         ) : (
           <NavbarList>
             <NavbarListItem>
