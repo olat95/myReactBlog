@@ -10,7 +10,8 @@ import {
   LogLink,
   RegisterError,
 } from './RegisterElement'
-import axios from 'axios'
+// import axios from 'axios'
+import { axiosInstance } from '../../config'
 
 const Register = () => {
   const [username, setUsername] = useState('')
@@ -23,7 +24,7 @@ const Register = () => {
     setError(false)
 
     try {
-      const response = await axios.post('/auth/register', {
+      const response = await axiosInstance.post('/auth/register', {
         username,
         email,
         password,

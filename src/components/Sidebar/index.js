@@ -12,14 +12,15 @@ import {
   SidebarTitle,
 } from './SidebarElement'
 import myprofile from '../../images/pelumi edit3.jpg'
-import axios from 'axios'
+// import axios from 'axios'
+import { axiosInstance } from '../../config'
 
 const Sidebar = () => {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
     const getCategory = async () => {
-      const response = await axios.get('/categories')
+      const response = await axiosInstance.get('/categories')
       setCategories(response.data)
     }
     getCategory()

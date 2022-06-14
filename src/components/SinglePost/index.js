@@ -14,7 +14,8 @@ import {
   SPWrapper,
 } from './SPElement'
 import { useLocation } from 'react-router-dom'
-import axios from 'axios'
+// import axios from 'axios'
+import { axiosInstance } from '../../config'
 
 const SinglePost = () => {
   const location = useLocation()
@@ -23,7 +24,7 @@ const SinglePost = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      const response = await axios.get(`/posts/${path}`)
+      const response = await axiosInstance.get(`/posts/${path}`)
       setPost(response.data)
     }
     getPost()

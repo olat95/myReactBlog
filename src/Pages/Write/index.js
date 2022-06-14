@@ -12,8 +12,9 @@ import {
   WriteLabel,
   WriteTA,
 } from './WriteElement'
-import axios from 'axios'
+// import axios from 'axios'
 import { Context } from '../../context/Context'
+import { axiosInstance } from '../../config'
 
 const Write = () => {
   const [title, setTitle] = useState('')
@@ -32,14 +33,14 @@ const Write = () => {
       newPost.photo = fileName
 
       try {
-        await axios.post('/upload', data)
+        await axiosInstance.post('/upload', data)
       } catch (error) {
         console.log(error.message)
       }
     }
 
     try {
-      const response = await axios.post('/posts', newPost)
+      const response = await axiosInstance.post('/posts', newPost)
       window.location.replace(`/post/${response.data._id}`)
     } catch (error) {
       console.log(error.message)
